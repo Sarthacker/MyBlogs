@@ -96,9 +96,14 @@ app.post('/submit-blog', async (request,response)=>{
 
 // Full content of each blog
 app.get('/blog/:id', async (request,response)=>{
-    const blogs=await Blog.find();
-    const blog = blogs.find(item => item.id == request.params.id);
-    response.render('blogs',{title:blog.title,blog});
+    try{
+        const blogs=await Blog.find();
+        const blog = blogs.find(item => item.id == request.params.id);
+        response.render('blogs',{title:blog.title,blog});
+    }
+    catch(error){
+        response.render('no-blog',{title:"Error 500"});
+    }
 });
 
 // 404 page

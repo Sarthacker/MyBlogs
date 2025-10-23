@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    :root {
+      --primary-color: #dc3545;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== No Blog Section ===== */
+    .no-blog-container {
+      max-width: 700px;
+      margin: 120px auto;
+      background-color: var(--white);
+      text-align: center;
+      padding: 50px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .no-blog-icon {
+      font-size: 70px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .no-blog-container h1 {
+      font-size: 2.2em;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .no-blog-container p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      text-decoration: none;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      margin-top: 100px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- ===== No Blog Found Section ===== -->
+  <section class="no-blog-container">
+    <div class="no-blog-icon">⚠️</div>
+    <h1>Blog Not Found</h1>
+    <p>Oops! The blog you are looking for either does not exist or has been deleted by the admin. Please check back later or explore other blogs on our platform.</p>
+    <a href="/" class="btn">🏠 Back to Home</a>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
