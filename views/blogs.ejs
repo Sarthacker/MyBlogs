@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+  <style>
+    :root {
+      --primary-color: #0077b6;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== Blog Section ===== */
+    .blog-container {
+      max-width: 900px;
+      background-color: var(--white);
+      margin: 60px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .blog-title {
+      font-size: 2em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .blog-meta {
+      color: #666;
+      font-size: 0.95em;
+      margin-bottom: 30px;
+    }
+
+    .blog-content {
+      line-height: 1.7;
+      font-size: 1.1em;
+      color: var(--text-color);
+      white-space: pre-line;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<!-- ===== Navigation Bar ===== -->
+<%- include('./partials/nav.ejs') %>
+
+  <!-- Blog Content -->
+  <main class="blog-container">
+    <h1 class="blog-title"><%= blog.title %></h1>
+    <p class="blog-meta">By <strong><%= blog.author %></strong> | <%= blog.date || "Today" %></p>
+    <div class="blog-content">
+      <%= blog.content %>
+    </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+</body>
+</html>

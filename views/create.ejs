@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    /* ===== Global Styles ===== */
+    :root {
+      --primary-color: #0077b6;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== Form Section ===== */
+    .create-blog {
+      max-width: 700px;
+      background-color: var(--white);
+      margin: 50px auto;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .create-blog h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-size: 2.2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 150px;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- ===== Create Blog Form ===== -->
+  <section class="create-blog">
+    <h1>Create a New Blog</h1>
+    <form action="/submit-blog" method="POST">
+      <label for="title">Blog Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter your blog title" required />
+
+      <label for="author">Author Name</label>
+      <input type="text" id="author" name="author" placeholder="Enter author name" required />
+
+      <label for="snippet">Snippet</label>
+      <input type="text" id="snippet" name="snippet" placeholder="Enter a short deccription..." required />
+
+      <label for="content">Blog Content</label>
+      <textarea id="content" name="content" placeholder="Write your blog here..." required></textarea>
+
+      <button type="submit">Publish Blog</button>
+    </form>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    :root {
+      --primary-color: #dc3545;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+      --error-color: #e63946;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== Error Section ===== */
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 75vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card h1 {
+      font-size: 2.5em;
+      color: var(--error-color);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .card a {
+      text-decoration: none;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    .card a:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Navigation Bar ===== -->
+  <%- include('./partials/nav.ejs') %>
+
+  <main>
+    <div class="card">
+      <h2>⚠️ Error Submitting the Form</h2>
+      <p>Something went wrong while submitting your form. Please try again later or check your connection.</p>
+      <a href="/" class="button">Go Home</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

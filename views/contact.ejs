@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    /* ===== Global Styles ===== */
+    :root {
+      --primary-color: #0077b6;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== Contact Section ===== */
+    .contact {
+      max-width: 700px;
+      background-color: var(--white);
+      margin: 60px auto;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 2.2em;
+    }
+
+    .contact p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* ===== Contact Info ===== */
+    .contact-info {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-info p {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .contact-info a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- ===== Contact Section ===== -->
+  <section class="contact">
+    <h1>Contact Me</h1>
+    <p>Have questions, suggestions, or feedback? I'd love to hear from you!</p>
+
+    <form action="/submit-contact" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="fullName" placeholder="Enter your full name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p>📧 Email: <a href="mailto:support@myblogs.com">benzaks302@gmail.com</a></p>
+      <p>📍 Location: Lucknow, India</p>
+      <p>📞 Phone: +91 98765 43210</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    /* ===== Global Styles ===== */
+    :root {
+      --primary-color: #0077b6;    /* Blue */
+      --secondary-color: #00b4d8;  /* Light blue */
+      --background-color: #f1f5f9; /* Light gray */
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      text-align: center;
+      background-color: var(--white);
+      padding: 100px 20px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .hero h1 {
+      font-size: 2.8em;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+     .blogs-section {
+      padding: 60px 40px;
+      text-align: center;
+      background-color: #f1f5f9;
+    }
+
+    .blogs-section h2 {
+      color: #0077b6;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .blogs-section .blogs-subtitle {
+      color: #555;
+      font-size: 1.1em;
+      margin-bottom: 40px;
+    }
+
+    .blogs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .blog-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .blog-card h3 {
+      color: #0077b6;
+      margin-bottom: 8px;
+    }
+
+    .blog-card .author {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .blog-card .excerpt {
+      color: #333;
+      line-height: 1.5;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .blog-card .read-more {
+      display: inline-block;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #0077b6;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 0.95em;
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-card .read-more:hover {
+      background-color: #00b4d8;
+    }
+
+    .no-blogs {
+      grid-column: 1 / -1;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation Bar ===== -->
+<%- include('./partials/nav.ejs') %>
+
+<!-- ===== Hero Section ===== -->
+<section class="blogs-section">
+  <h2>Latest Blogs</h2>
+  <p class="blogs-subtitle">Welcome to MyBlogs, an open and anonymous blogging platform where your thoughts take center stage. Share your ideas, experiences, and stories freely. MyBlogs gives you a space to write without limits. Start reading or create your own post today!</p>
+  <p class="blogs-subtitle">Read what the community has been sharing.</p>
+  
+  <div class="blogs-container">
+    <% if (blogs && blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <div class="blog-card">
+          <h3><%= blog.title %></h3>
+          <p class="excerpt">
+            <%= blog.snippet.length > 150 ? blog.snippet.substring(0, 150) + '...' : blog.snippet %>
+          </p>
+          <a href="/blog/<%= blog.id %>" class="read-more">Read More →</a>
+        </div>
+      <% }) %>
+    <% } 
+    else { %>
+      <p class="no-blogs">No blogs available yet. Be the first to create one!</p>
+    <% } %>
+  </div>
+</section>
+  
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+
+
+</body>
+</html>

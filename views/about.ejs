@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head.ejs') %>
+
+  <style>
+    /* ===== Global Styles ===== */
+    :root {
+      --primary-color: #0077b6;
+      --secondary-color: #00b4d8;
+      --background-color: #f1f5f9;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 12px 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav .logo img {
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.05em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ===== About Section ===== */
+    .about {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: var(--white);
+      padding: 50px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .about h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .team {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .team h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .team-members {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .member {
+      background-color: var(--background-color);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .member img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .member h3 {
+      margin: 15px 0 5px 0;
+      color: var(--primary-color);
+    }
+
+    .social-links {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+      border: 1px solid var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-size: 0.9em;
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <%- include('./partials/nav.ejs') %>
+
+  <!-- ===== About Section ===== -->
+  <section class="about">
+    <h1>About Me</h1>
+    <p>Welcome to <strong>MyBlogs</strong> — a space where my ideas come alive. I’m a passionate creator and reader who believes in the power of words and storytelling. This platform allows me — and anyone else — to share our voices, connect with others, and explore new perspectives.</p>
+    <p>Founded in 2025, I built MyBlogs with a simple mission: to make writing and reading blogs easy, beautiful, and accessible to everyone. Whether you’re an experienced writer or just starting out, my goal is to provide a clean and engaging space where you can express your thoughts freely.</p>
+    
+    <div class="team">
+      <div class="team-members">
+        <div class="member">
+          <img src="/images/about-img.png" alt="Sarthak">
+          <h3>Sarthak</h3>
+          <div class="social-links">
+            <a href="https://www.github.com/Sarthacker" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/sarthak-kumar-singh-6bb4ab258/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
