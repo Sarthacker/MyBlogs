@@ -32,19 +32,6 @@ mongoose.connect(blogs_db) // async method
 app.set('view engine','ejs');
 
 
-// Middleware to block prefetch requests
-app.use((req, res, next) => {
-    if (req.headers.purpose === 'prefetch') {
-        console.log('Prefetch request blocked:', req.url);
-        return res.status(204).end(); // No content
-    }
-    next();
-});
-// Middleware to disable caching for development
-app.use((req, res, next) => {
-    res.set('Cache-Control', 'no-store');
-    next();
-});
 app.use(express.urlencoded({ extended: true })); // For form data
 app.use(express.json()); // For JSON data
 
